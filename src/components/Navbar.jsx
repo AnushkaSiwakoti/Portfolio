@@ -5,7 +5,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const sectionIds = ['about', 'projects', 'skills', 'fun'];
+    const sectionIds = ['about', 'projects', 'skills', 'funsies'];
 
     const handleScroll = () => {
       const scrollPos = window.scrollY + 100;
@@ -32,7 +32,7 @@ export default function Navbar() {
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
-    <a href="#fun">Fun</a>
+    <a href="#fun">Funsies</a>
   </div>
     </div>
   );

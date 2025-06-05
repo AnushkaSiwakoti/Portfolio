@@ -1,0 +1,97 @@
+.tinder-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    scroll-snap-align: start;
+    position: relative;
+  }
+  
+  .tinder-tools h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    background-color: #912200;
+    padding: 0.6rem 2rem;
+    border-radius: 999px;
+  }
+  
+  .card-container {
+    width: 380px;
+    height: 220px;
+    perspective: 1000px;
+    position: relative;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    animation: pulseCard 1.5s ease-in-out infinite alternate;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 20px 6px rgba(15, 163, 177, 0.7);
+    transform: scale(1.02);
+    animation: none;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    color: #0FA3B1;
+    margin-bottom: 1rem;
+  }
+  
+  .card p {
+    font-size: 1.1rem;
+    color: #456990;
+    line-height: 1.6;
+  }
+  
+  @keyframes pulseCard {
+    from {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    to {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #d0d0d0;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .dot:hover {
+    background-color: #0FA3B1;
+    transform: scale(1.2);
+  }
+  
+  .dot.active {
+    background-color: #0FA3B1;
+    box-shadow: 0 0 6px #0FA3B1;
+  }
+  
