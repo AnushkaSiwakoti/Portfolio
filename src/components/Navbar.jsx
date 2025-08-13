@@ -25,15 +25,15 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      <div className="navbar-logo">
+      {/* <div className="navbar-logo">
         <img src="/logo.png" alt="Anushka Logo" className="logo-img" />
-      </div>
-      <div className="navbar-links">
+      </div> */}
+      {/* <div className="navbar-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#fun">Funsies</a>
-  </div>
+  </div> */}
     </div>
   );
 }
