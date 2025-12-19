@@ -1,75 +1,130 @@
-/* File: src/components/ArtGallery.css */
+/* Editorial Collage Style Art Gallery */
 
-.art-gallery-container {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+.collage-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  grid-auto-flow: dense;
+}
+
+.collage-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.collage-item:hover {
+  transform: scale(1.03) rotate(0.5deg);
+  box-shadow: 0 12px 30px rgba(255, 143, 171, 0.2);
+  z-index: 10;
+}
+
+/* Size variations for editorial look */
+.collage-item.small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.collage-item.medium {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.collage-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.collage-item:hover img {
+  filter: brightness(1.05);
+}
+
+/* Handwritten text overlays */
+.handwritten-overlay {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FF8FAB;
+  text-shadow: 
+    2px 2px 0px rgba(255, 255, 255, 0.9),
+    -1px -1px 0px rgba(255, 255, 255, 0.9),
+    1px -1px 0px rgba(255, 255, 255, 0.9),
+    -1px 1px 0px rgba(255, 255, 255, 0.9);
+  transform: rotate(-8deg);
+  pointer-events: none;
+  animation: handwritePop 0.6s ease-out;
+}
+
+@keyframes handwritePop {
+  0% {
+    opacity: 0;
+    transform: rotate(-8deg) scale(0.8);
   }
-  
-  .gallery-block h3 {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #114B5F;
-    margin-bottom: 1rem;
+  60% {
+    opacity: 1;
+    transform: rotate(-8deg) scale(1.1);
   }
-  
-  .scroll-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+  100% {
+    opacity: 1;
+    transform: rotate(-8deg) scale(1);
   }
-  
-  .gallery {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .collage-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
-    padding: 1rem 0;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
   
-  .gallery::-webkit-scrollbar {
-    display: none;
+  .collage-item.large {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .collage-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
   
-  .gallery img {
-    height: 220px;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-    flex: 0 0 auto;
+  .collage-item.large,
+  .collage-item.medium {
+    grid-column: span 1;
+    grid-row: span 1;
   }
   
-  .gallery img:hover {
-    transform: scale(1.05);
+  .handwritten-overlay {
+    font-size: 1.8rem;
+    bottom: 10px;
+    right: 10px;
   }
-  
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 50%;
-    z-index: 1;
-    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .collage-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .arrow:hover {
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-  
-  .arrow.left {
-    left: 0;
-  }
-  
-  .arrow.right {
-    right: 0;
-  }
-  
+}
