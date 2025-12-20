@@ -733,7 +733,7 @@ body, html {
    Fun Section - Scrapbook Style
 =========================== */
 .fun { 
-  background: linear-gradient(135deg, #FFF5F7 0%, #F0F4FF 100%);
+  background: linear-gradient(135deg, #F5F7FA 0%, #E8EDF2 100%);
   text-align: center;
   min-height: 100vh;
   padding: 4rem 2rem 5rem;
