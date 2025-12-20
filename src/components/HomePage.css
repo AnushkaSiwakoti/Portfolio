@@ -535,7 +535,7 @@ body, html {
    Projects Section
 =========================== */
 .projects { 
-  background: linear-gradient(135deg, #FFF9F0 0%, #FFF5EB 100%);
+  background: linear-gradient(135deg, #FFFBF5 0%, #FFF9F0 100%);
   min-height: 100vh;
 }
 
