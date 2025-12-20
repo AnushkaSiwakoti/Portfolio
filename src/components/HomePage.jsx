@@ -66,28 +66,56 @@ export default function HomePage() {
 
       <div className="homepage">
         <section className="about" id="about" data-testid="about-section">
-          <div className="about-container">
-            <div className="about-left">
-              <div className="profile-pic-wrapper">
-                <img src="/my-photo.jpeg" alt="Anushka" className="profile-pic" />
-                <div className="pic-decoration pic-decoration-1"></div>
-                <div className="pic-decoration pic-decoration-2"></div>
-                <div className="pic-decoration pic-decoration-3"></div>
+          <div className="hero-wrapper">
+            {/* Decorative elements */}
+            <div className="deco-star deco-star-1">★</div>
+            <div className="deco-star deco-star-2">✨</div>
+            <div className="deco-heart deco-heart-1">♡</div>
+            <div className="deco-arrow deco-arrow-1">→</div>
+            <div className="deco-circle deco-circle-1"></div>
+            <div className="deco-circle deco-circle-2"></div>
+            
+            {/* Handwritten intro - top */}
+            <div className="handwritten-top">Hi, since you're new here—</div>
+            
+            {/* Main content container */}
+            <div className="hero-content">
+              {/* Large profile picture with frame */}
+              <div className="hero-pic-container">
+                <div className="pic-sticker pic-sticker-1">Full-stack</div>
+                <div className="pic-sticker pic-sticker-2">SWE</div>
+                <img src="/my-photo.jpeg" alt="Anushka" className="hero-profile-pic" />
+                <div className="pic-doodle pic-doodle-1">⭐</div>
+                <div className="pic-doodle pic-doodle-2">♡</div>
+              </div>
+              
+              {/* Big name overlay */}
+              <div className="name-overlay-container">
+                <h1 className="hero-name">ANUSHKA</h1>
+                <div className="hero-tagline">Product Engineer</div>
               </div>
             </div>
-
-            <div className="about-right">
-              <div className="handwritten-intro">Hi, since you're new here—</div>
-              <h1 className="big-bold-text">I'm Anushka</h1>
-              <p className="about-blurb">
+            
+            {/* Bio box */}
+            <div className="hero-bio">
+              <p>
                 I'm a full-stack engineer who builds products that solve real problems. 
                 I love the intersection of design and engineering—taking an idea from wireframe 
                 to deployed product. Whether it's architecting scalable systems or iterating on 
                 user flows, I'm all about shipping things that work and feel right.
-                <br/><br/>
+              </p>
+              <p className="bio-highlight">
                 My sweet spot? Turning messy, complex problems into clean, intuitive solutions. 
                 I think like a PM, build like an engineer, and care deeply about the details.
               </p>
+            </div>
+            
+            {/* Fun facts/tags */}
+            <div className="hero-tags">
+              <span className="hero-tag">React</span>
+              <span className="hero-tag">Python</span>
+              <span className="hero-tag">System Design</span>
+              <span className="hero-tag">Product Thinking</span>
             </div>
           </div>
         </section>
