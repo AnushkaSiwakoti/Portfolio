@@ -1,85 +1,118 @@
-/* Editorial Collage Style Art Gallery */
+/* Scrapbook-Style Art Gallery */
 
-.collage-container {
+.scrapbook-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.collage-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  grid-auto-flow: dense;
-}
-
-.collage-item {
+  padding: 3rem 2rem;
   position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.scrapbook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem 2rem;
+  grid-auto-flow: dense;
+  padding: 2rem 0;
+}
+
+.scrapbook-item {
+  position: relative;
+  transition: transform 0.4s ease, z-index 0.4s ease;
   cursor: pointer;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.15));
 }
 
-.collage-item:hover {
-  transform: scale(1.03) rotate(0.5deg);
-  box-shadow: 0 12px 30px rgba(255, 143, 171, 0.2);
-  z-index: 10;
+.scrapbook-item:hover {
+  transform: rotate(0deg) scale(1.08) !important;
+  z-index: 100;
+  filter: drop-shadow(8px 8px 16px rgba(0, 0, 0, 0.25));
 }
 
-/* Size variations for editorial look */
-.collage-item.small {
-  grid-column: span 1;
-  grid-row: span 1;
+/* Polaroid-style frame */
+.polaroid-frame {
+  background: white;
+  padding: 12px;
+  padding-bottom: 50px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.collage-item.medium {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-
-.collage-item.large {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.collage-item img {
+.polaroid-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: filter 0.3s ease;
+  border-radius: 2px;
 }
 
-.collage-item:hover img {
-  filter: brightness(1.05);
-}
-
-/* Handwritten text overlays */
-.handwritten-overlay {
+.polaroid-caption {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  bottom: 8px;
+  left: 12px;
+  right: 12px;
+  text-align: center;
+}
+
+.handwritten-caption {
   font-family: 'Caveat', cursive;
-  font-size: 2.5rem;
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 600;
+}
+
+/* Size variations for scrapbook look */
+.scrapbook-item.small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.scrapbook-item.small .polaroid-frame img {
+  height: 180px;
+}
+
+.scrapbook-item.medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.scrapbook-item.medium .polaroid-frame img {
+  height: 250px;
+}
+
+.scrapbook-item.large {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.scrapbook-item.large .polaroid-frame img {
+  height: 300px;
+}
+
+/* Handwritten text overlays - scrapbook style */
+.scrapbook-overlay {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
   font-weight: 700;
   color: #FF8FAB;
-  text-shadow: 
-    2px 2px 0px rgba(255, 255, 255, 0.9),
-    -1px -1px 0px rgba(255, 255, 255, 0.9),
-    1px -1px 0px rgba(255, 255, 255, 0.9),
-    -1px 1px 0px rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
   transform: rotate(-8deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   pointer-events: none;
-  animation: handwritePop 0.6s ease-out;
+  animation: popIn 0.6s ease-out;
+  border: 2px dashed #FFB6D9;
 }
 
-@keyframes handwritePop {
+@keyframes popIn {
   0% {
     opacity: 0;
-    transform: rotate(-8deg) scale(0.8);
+    transform: rotate(-8deg) scale(0.5);
   }
   60% {
     opacity: 1;
@@ -91,40 +124,138 @@
   }
 }
 
+/* Decorative doodles scattered around */
+.scrapbook-doodle {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+.doodle-1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.doodle-2 {
+  top: 30%;
+  right: 8%;
+  animation-delay: 1s;
+}
+
+.doodle-3 {
+  bottom: 20%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.doodle-4 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+.doodle-5 {
+  bottom: 10%;
+  right: 5%;
+  animation-delay: 0.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(10deg);
+  }
+}
+
+/* Tape effect on some items */
+.scrapbook-item:nth-child(3n)::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  width: 60px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.scrapbook-item:nth-child(5n)::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  transform: rotate(45deg);
+  width: 50px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .collage-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
+  .scrapbook-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem 1.5rem;
   }
   
-  .collage-item.large {
+  .scrapbook-item.large {
     grid-column: span 2;
-    grid-row: span 1;
   }
 }
 
 @media (max-width: 768px) {
-  .collage-grid {
+  .scrapbook-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 2rem 1rem;
   }
   
-  .collage-item.large,
-  .collage-item.medium {
+  .scrapbook-item.large {
     grid-column: span 1;
-    grid-row: span 1;
   }
   
-  .handwritten-overlay {
-    font-size: 1.8rem;
-    bottom: 10px;
-    right: 10px;
+  .scrapbook-item.large .polaroid-frame img {
+    height: 220px;
+  }
+  
+  .scrapbook-item.medium .polaroid-frame img {
+    height: 200px;
+  }
+  
+  .scrapbook-item.small .polaroid-frame img {
+    height: 150px;
+  }
+  
+  .scrapbook-overlay {
+    font-size: 1.5rem;
+    bottom: -10px;
+    right: -10px;
+  }
+  
+  .scrapbook-doodle {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .collage-grid {
+  .scrapbook-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .scrapbook-item.large .polaroid-frame img,
+  .scrapbook-item.medium .polaroid-frame img {
+    height: 280px;
   }
 }
