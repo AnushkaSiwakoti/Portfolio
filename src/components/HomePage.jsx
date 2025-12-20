@@ -6,6 +6,7 @@ export default function HomePage() {
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [showLinkaVideo, setShowLinkaVideo] = useState(false);
   const [showWegoVideo, setShowWegoVideo] = useState(false);
+  const [activeTab, setActiveTab] = useState('about');
 
   useEffect(() => {
     const homepage = document.querySelector('.homepage');
@@ -19,18 +20,65 @@ export default function HomePage() {
     homepageElement.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    const homepage = document.querySelector('.homepage');
+    if (section && homepage) {
+      const offsetTop = section.offsetTop - 80;
+      homepage.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+    setActiveTab(sectionId);
+  };
+
   return (
     <>
+      {/* Navigation Tabs */}
+      <div className="nav-tabs" data-testid="nav-tabs">
+        <button 
+          className={activeTab === 'about' ? 'active' : ''} 
+          onClick={() => scrollToSection('about')}
+          data-testid="tab-about"
+        >
+          About Me
+        </button>
+        <button 
+          className={activeTab === 'projects' ? 'active' : ''} 
+          onClick={() => scrollToSection('projects')}
+          data-testid="tab-projects"
+        >
+          Projects
+        </button>
+        <button 
+          className={activeTab === 'fun' ? 'active' : ''} 
+          onClick={() => scrollToSection('fun')}
+          data-testid="tab-art"
+        >
+          Art & Photos
+        </button>
+        <button 
+          className={activeTab === 'contact' ? 'active' : ''} 
+          onClick={() => scrollToSection('contact')}
+          data-testid="tab-contact"
+        >
+          Contact
+        </button>
+      </div>
+
       <div className="homepage">
         <section className="about" id="about" data-testid="about-section">
           <div className="about-container">
             <div className="about-left">
-              <img src="/my-photo.jpeg" alt="Anushka" className="profile-pic" />
+              <div className="profile-pic-wrapper">
+                <img src="/my-photo.jpeg" alt="Anushka" className="profile-pic" />
+                <div className="pic-decoration pic-decoration-1"></div>
+                <div className="pic-decoration pic-decoration-2"></div>
+                <div className="pic-decoration pic-decoration-3"></div>
+              </div>
             </div>
 
             <div className="about-right">
               <div className="handwritten-intro">Hi, since you're new here—</div>
-              <h1>I'm Anushka</h1>
+              <h1 className="big-bold-text">I'm Anushka</h1>
               <p className="about-blurb">
                 I'm a full-stack engineer who builds products that solve real problems. 
                 I love the intersection of design and engineering—taking an idea from wireframe 
@@ -45,7 +93,7 @@ export default function HomePage() {
         </section>
 
         <section className="projects" id="projects" data-testid="projects-section">
-          <h2>Projects</h2>
+          <h2 className="big-bold-text">Projects</h2>
 
           {/* Linka */}
           <div className="project-card">
@@ -154,14 +202,14 @@ export default function HomePage() {
         </section>
 
         <section className="fun" id="fun" data-testid="art-section">
-          <h2>When I'm Not Coding</h2>
+          <h2 className="big-bold-text">When I'm Not Coding</h2>
           <p className="fun-intro">I paint, take photos, and chase pretty things with my camera.</p>
           <ArtGallery />
         </section>
 
         <section className="contact" id="contact" data-testid="contact-section">
           <div className="contact-container">
-            <h2>Let's Connect</h2>
+            <h2 className="big-bold-text">Let's Connect</h2>
             <p className="contact-subtitle">Always open to interesting opportunities and conversations</p>
             <div className="contact-links">
               <a href="mailto:hn2shya@gmail.com" className="contact-button" data-testid="email-link">
