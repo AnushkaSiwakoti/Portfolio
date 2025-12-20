@@ -125,13 +125,13 @@ body, html {
    Hero Section - Eye-Catching!
 =========================== */
 .about {
-  background: linear-gradient(135deg, #FFF0F5 0%, #FFE8F0 50%, #E8F4F8 100%);
+  background: linear-gradient(135deg, #F7F9FC 0%, #E8F2F7 50%, #F0F4F8 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem 2rem;
+  padding: 5rem 2rem 3rem;
   position: relative;
   overflow: hidden;
 }
@@ -144,6 +144,7 @@ body, html {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 /* Handwritten intro at top */
@@ -155,6 +156,7 @@ body, html {
   text-align: center;
   animation: handwriteIn 1.2s ease-out;
   z-index: 2;
+  margin-top: 1rem;
 }
 
 @keyframes handwriteIn {
